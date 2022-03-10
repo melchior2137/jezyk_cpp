@@ -15,7 +15,7 @@ void fill_arr(double tab[SIZE]){
     }
 }
 
-double fib_iteracyjnie(unsigned long long n, int pierwsze_uruchomienie,double tab[SIZE], double &ostatni, double &aktualny, double &temp,unsigned long long &i)
+double fib_iteracyjnie(unsigned long long n,double tab[SIZE], double &ostatni, double &aktualny, double &temp,unsigned long long &i)
 {
     if (tab[n]==-1)
     {
@@ -33,14 +33,13 @@ double fib_iteracyjnie(unsigned long long n, int pierwsze_uruchomienie,double ta
 
 int main()
 {
-    int pierwsze_uruchomienie = 1;
     double ostatni = 0;
     double aktualny = 1;
     double temp;
     unsigned long long i = 2;
 
     double tab[SIZE];
-    tab[1]=0;
+    tab[1]=1;
 
     //wypełniam cała tablie -1 zeby bylo wiadomo gdzie nie wpisałem elementu ciągu
     fill_arr(tab);
@@ -53,14 +52,12 @@ int main()
 
         auto start_iteracyjnie = high_resolution_clock::now();
 
-        cout << fib_iteracyjnie(k, pierwsze_uruchomienie, tab, ostatni, aktualny, temp,i) << endl;
+        cout << fib_iteracyjnie(k, tab, ostatni, aktualny, temp,i) << endl;
 
         auto stop_iteracyjnie = high_resolution_clock::now();
         auto duration_iteracyjnie = duration_cast<microseconds>(stop_iteracyjnie - start_iteracyjnie);
 
         cout << "Czas wykonania i wypisania iteracyjnie: "
-             << duration_iteracyjnie.count() << " microseconds" << endl;
-
-        pierwsze_uruchomienie = 0;
+             << duration_iteracyjnie.count() << "ms" << endl;
     }
 }
