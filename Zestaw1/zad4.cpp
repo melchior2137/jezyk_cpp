@@ -25,7 +25,9 @@ double fib_rek(unsigned long long n){
 
 int main()
 {
-    unsigned long long k = 40;
+    unsigned long long k;
+    cout << "Podaj element, który chcesz wyliczyc: ";
+    cin >> k;
 
     auto start_rek = high_resolution_clock::now();
 
