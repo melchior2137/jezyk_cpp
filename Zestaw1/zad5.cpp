@@ -9,7 +9,7 @@
 using namespace std;
 using namespace std::chrono;
 
-double fib_iteracyjnie(unsigned long long n,double tab[SIZE], unsigned long long &i)
+double fib_iteracyjnie(long long n,double tab[SIZE], unsigned long long &i)
 {
     if (n<3) return 1;
     if (tab[n]==0)
@@ -17,7 +17,7 @@ double fib_iteracyjnie(unsigned long long n,double tab[SIZE], unsigned long long
         for (i; i < n; i++)
         {
             tab[i]=tab[i-1]+tab[i-2];
-            //cout<<tab[i]<<endl;
+            cout<<tab[i]<<endl;
         }
     }
     return tab[n-1];
@@ -26,7 +26,7 @@ double fib_iteracyjnie(unsigned long long n,double tab[SIZE], unsigned long long
 int main()
 {
     unsigned long long i = 2;
-    unsigned long long k;
+    long long k;
 
     //inicjalizuje tablice z 0
     double tab[SIZE] = {0};
@@ -35,10 +35,10 @@ int main()
 
     while (1)
     {
-        cout << "Podaj element, który chcesz wyliczyc (wpisz -1 zeby wyjść): ";
+        cout << "Podaj element, który chcesz wyliczyc (wpisz liczbe <= 0 zeby wyjść): ";
         cin >> k;
 
-        if(k==-1) exit(0);
+        if(k<=0) exit(0);
 
         auto start_iteracyjnie = high_resolution_clock::now();
 
