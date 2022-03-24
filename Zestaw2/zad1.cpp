@@ -1,3 +1,9 @@
+/*
+Napisz program, który wczyta z pliku ASCII tekst, a następnie go wyrówna do zadanej (np. jako stały
+parametr) szerokości kolumny i wyświetli na ekranie. Przykładowy tekst można wygenerować
+w serwisie https://pl.lipsum.com/ albo użyć dowolny inny.
+*/
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -8,16 +14,16 @@
 using namespace std;
 int main()
 {
-    ifstream f("a.ascii"); // taking file as inputstream
+    ifstream f("a.ascii");
     string str;
     if (f)
     {
         ostringstream ss;
-        ss << f.rdbuf(); // reading data
+        ss << f.rdbuf(); 
         str = ss.str();
     }
 
-    for (int i = 10; i < str.size(); i = i + WIDTH + 1)
+    for (int i = WIDTH; i < str.size(); i = i + WIDTH + 1)
     {
         str.insert(i, 1, '\n');
     }
