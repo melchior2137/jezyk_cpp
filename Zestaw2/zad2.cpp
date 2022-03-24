@@ -12,7 +12,7 @@ problemu można znaleźć w Internecie. Oczywiście proszę wypisać liczby prze
 
 using namespace std;
 
-void quickSortMiddle(vector<int> &a, int left, int right)
+void quickSort(vector<int> &a, int left, int right)
 {
     if(left >= right) return;
     int pivot = a[left + (right - left)/2];
@@ -25,8 +25,8 @@ void quickSortMiddle(vector<int> &a, int left, int right)
         if(leftI >= rightI)break;
         swap(a[leftI], a[rightI]);
     }
-    quickSortMiddle(a,left,rightI);
-    quickSortMiddle(a,rightI+1,right);
+    quickSort(a,left,rightI);
+    quickSort(a,rightI+1,right);
 }
 
 int main()
@@ -42,7 +42,7 @@ int main()
         cout << dane.at(n) << endl;
     }
 
-    quickSortMiddle(dane, 0, 9999);
+    quickSort(dane, 0, 9999);
 
     cout<<"Sorted vector: "<<endl;
 
